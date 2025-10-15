@@ -14,7 +14,7 @@ body {
     linear-gradient(to bottom right, rgba(45, 38, 185, 0.6), rgba(172, 36, 104, 0.6)),
     url('/assets/bg1.png');
   background-size: cover;
-  background-position: center;
+  background-position: contain;
   background-repeat: no-repeat;
   background-blend-mode: overlay;
   color: white;
