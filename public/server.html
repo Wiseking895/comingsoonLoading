@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Coming Soon | Web App Launch</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="icon" type="image/png" href="/assets/logo.png" />
+</head>
+<body>
+  <!-- Navbar -->
+  <nav class="navbar">
+    <div class="logo">
+      <img src="/assets/logo.png" alt="Logo">
+      <h1>MyWebApp</h1>
+    </div>
+
+    <!-- Hamburger Menu Button -->
+    <button id="menu-btn" class="menu-btn" aria-label="Toggle menu">
+      <svg id="menu-icon" xmlns="http://www.w3.org/2000/svg" class="icon" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 8h16M4 16h16" />
+      </svg>
+      <svg id="close-icon" xmlns="http://www.w3.org/2000/svg" class="icon hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+      </svg>
+    </button>
+
+    <ul class="nav-links" id="nav-links">
+      <li><a href="#">Home</a></li>
+      <li><a href="#">About</a></li>
+      <li><a href="#">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- Main Section -->
+  <section class="coming-soon">
+    <div class="overlay">
+      <div id="loader-container">
+        <h2 id="loading-text">Loading <span id="loading-percent">0%</span></h2>
+        <div id="progress-bar-container">
+          <div id="progress-bar"></div>
+        </div>
+      </div>
+      <div id="message" class="hidden">
+        <h1>Ready to design for you your web app</h1>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2025 MyWebApp. All rights reserved.</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

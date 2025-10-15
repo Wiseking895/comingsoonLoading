@@ -1,0 +1,228 @@
+/* Reset & Defaults */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background-image: 
+    linear-gradient(to bottom right, rgba(45, 38, 185, 0.6), rgba(172, 36, 104, 0.6)),
+    url('/assets/bg1.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-blend-mode: overlay;
+  color: white;
+  overflow: hidden;
+}
+
+/* Navbar */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+  background: rgba(0, 0, 0, 0.4);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  position: relative;
+  z-index: 50;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.logo img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.logo img:hover {
+  transform: scale(1.05);
+}
+
+.nav-links {
+  display: flex;
+  gap: 1.5rem;
+  list-style: none;
+}
+
+.nav-links a {
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s;
+}
+
+.nav-links a:hover {
+  color: #facc15;
+}
+
+/* Hamburger Menu */
+.menu-btn {
+  display: none;
+  background: none;
+  border: none;
+  color: white;
+  cursor: pointer;
+}
+
+.menu-btn .icon {
+  width: 28px;
+  height: 28px;
+}
+
+/* Coming Soon Section */
+.coming-soon {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.overlay {
+  text-align: center;
+}
+
+/* Loading Text and Bar */
+#loader-container {
+  animation: fadeIn 1.5s ease forwards;
+  transition: opacity 1s ease;
+}
+
+#loading-text {
+  font-size: 2rem;
+  font-weight: 600;
+  letter-spacing: 2px;
+  animation: glow 1.5s infinite alternate;
+}
+
+#progress-bar-container {
+  width: 300px;
+  height: 15px;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 10px;
+  overflow: hidden;
+  margin: 1rem auto;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+#progress-bar {
+  height: 100%;
+  width: 0%;
+  background: linear-gradient(90deg, #4f46e5, #ec4899, #f59e0b);
+  background-size: 200%;
+  animation: gradientMove 3s infinite linear;
+  border-radius: 10px;
+  transition: width 0.1s ease;
+}
+
+@keyframes gradientMove {
+  0% { background-position: 0% 50%; }
+  100% { background-position: 100% 50%; }
+}
+
+/* Message after loading */
+#message {
+  font-size: 1.8rem;
+  font-weight: 600;
+  opacity: 0;
+  transition: opacity 1s ease;
+  animation: fadeIn 2s ease forwards;
+}
+
+.hidden {
+  display: none;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); opacity: 1; }
+}
+
+@keyframes glow {
+  from { text-shadow: 0 0 10px #fff; }
+  to { text-shadow: 0 0 20px #facc15; }
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  padding: 1rem;
+  font-size: 0.9rem;
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
+  background: rgba(0, 0, 0, 0.3);
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+  .menu-btn {
+    display: block;
+    z-index: 60;
+  }
+
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 70px;
+    right: 20px;
+    background: rgba(0, 0, 0, 0.9);
+    padding: 1.5rem;
+    border-radius: 10px;
+    text-align: right;
+    gap: 1rem;
+    animation: fadeIn 0.3s ease forwards;
+  }
+
+  .nav-links.active {
+    display: flex;
+  }
+
+  .logo h1 {
+    display: none;
+  }
+
+  .logo img {
+    width: 30px;
+    height: 30px;
+  }
+
+  #loading-text {
+    font-size: 1.5rem;
+  }
+
+  #message {
+    font-size: 1.2rem;
+  }
+
+  #progress-bar-container {
+    width: 80%;
+  }
+}
+
+/* Optional pulse effect after load (for message) */
+@keyframes pulse {
+  0% { text-shadow: 0 0 10px #fff; transform: scale(1); }
+  50% { text-shadow: 0 0 20px #facc15; transform: scale(1.05); }
+  100% { text-shadow: 0 0 10px #fff; transform: scale(1); }
+}
+
+#message.show {
+  animation: pulse 2s infinite ease-in-out;
+}
